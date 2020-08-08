@@ -1,0 +1,103 @@
+{% extends "main/header.html" %}
+
+
+{% block content %}
+<div class="content">
+  <form action="" class="frame p-0" method="POST">
+    {% csrf_token %}
+    <div class="frame__body p-0">
+      <div class="row p-0 level fill-height">
+        <div class="col-5 p-0 bg">
+          <div id="splash-img" class="hero fullscreen hero-img parallax-img" style="background-image: url('../../static/main/img/musing1.jpg');">
+            <div class="hero-body">
+              <div class="content u-text-center">
+                <h3 class="white title faded"><i>"Sign Up today and see your child turn into a mini-computer in no time!"</i></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="space xlarge"></div>
+          <div class="padded">
+            <h4>Registrations and Enquiries</h4>
+              <div class="form-section">
+                <label>Please share your details below, we would love to call you and connect, its the best way to get to know us!</label>
+                {{ RegisterForm.non_field_errors }}
+                  <div class="input-control">
+                    {{ register.parent_name.errors }}
+                    <input class="input-contains-icon" id="id_parent_name" name="parent_name" placeholder="Parent Full Name:" type="text" required>
+                    <span class="icon">
+                      <i class="far fa-wrapper fa-user-circle small"></i>
+                    </span>
+                  </div>
+                <div class="input-control">
+                  {{ register.student_name.errors }}
+                  <input class="input-contains-icon" id="student_name" name="student_name" placeholder="Child Full Name:" type="text" required>
+                  <span class="icon">
+                      <i class="far fa-wrapper fa-user-circle small"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="input-control">
+                  <input class="input-contains-icon" id="id_email" name="email" type="email" placeholder="Email:" type="text" value="" required>
+                  <span class="icon">
+                    <i class="far fa-wrapper fa-envelope-open small"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="input-control row">
+                  {{ register.phone.errors }}
+                  <div class="col-7">
+                    <div class="form-group">
+                      <label class="form-group-label">+91</label>
+                      <input class="form-group-input" id="id_phone" name="phone" type="number" min="1000000000" max="9999999999" placeholder="Phone number:" required/>
+                    </div>
+                  </div>
+                    <div class="col-5">
+                      <div class="ignore-screen level">
+                        <div class="col-7 ignore-screen level-item"><p class>Child age:</p></div>
+                        <div class="col-5 ignore-screen level-item input-control">
+                          <select class="select" placeholder="Choose one" name="age">
+                            <option value="5" >5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-section">
+                    <div class="input-control">
+                      <label>How can we help you?</label>
+                      <select id="reasons" name="reasons">
+                        <option value="Connect for more details">Connect for further details</option>
+                        <option value="Enroll">Enroll my child</option>
+                        <option value="Other reasons">Other reasons</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input class="btn-info u-pull-right" name="enquiry" type="submit" value="Submit">
+                  <span class="fg-danger info"></span>
+                  <span class="info">You can also <a href="/#contact_us"><strong>Contact us</strong></a> for a quicker response</span>
+                </div>
+              <div class="space xlarge"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!--<div id="toasting">
+  Thanks for reaching out! We have received your request and will get back to you shortly.
+</div>-->
+
+{% endblock %}

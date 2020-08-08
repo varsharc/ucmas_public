@@ -1,11 +1,14 @@
 from django.contrib import admin
-from .models import section
+from .models import recognition
 
 # Register your models here.
-class SectionAdmin(admin.ModelAdmin):
+class RecognitionAdmin(admin.ModelAdmin):
     fieldsets = [
-        ("Title",{"fields": ["section_title"]}),
-        ("Content",{"fields": ["section_body"]})
+        ("Recognising:",{"fields": ["rec_title"]}),
+        ("Reconising with:",{"fields": ["rec_subtitle"]}),
+        ("Recognition Description",{"fields": ["rec_content"]}),
+        ("Recognition Category",{"fields": ["rec_type"]}),
+        ("Recognition Image",{"fields": ["rec_img"]}),
     ]
 
-admin.site.register(section, SectionAdmin)
+admin.site.register(recognition, RecognitionAdmin)
